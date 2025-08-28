@@ -1,0 +1,98 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 48px 0 64px;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.glow {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 60vh;
+  filter: blur(60px);
+  background: radial-gradient(closest-side, rgba(255,110,199,0.35), rgba(110,203,255,0.25), transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nameScript {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(24px, 3.2vw, 32px);
+  color: var(--accent);
+}
+
+.headline {
+  margin: 10px 0 12px;
+  background: linear-gradient(90deg, #ffd1f0, #b8e4ff, #fff1b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ctaRow {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardGrid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  padding: 16px;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255,255,255,0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35), 0 6px 18px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+}
+
+.memories {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+}
+
+.memoryItem {
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px;
+  background: rgba(0,0,0,0.15);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 16px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(var(--secondary), transparent);
+}
+
+.celebrate {
+  text-align: center;
+}
