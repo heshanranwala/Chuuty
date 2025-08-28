@@ -20,7 +20,9 @@ export default function Surprise() {
         </motion.h1>
         <p className="subtitle">Some of my favorite smiles and moments.</p>
 
+        {/* Desktop Layout */}
         <div
+          className="desktop-gallery"
           style={{
             marginTop: 24,
             display: 'grid',
@@ -61,7 +63,7 @@ export default function Surprise() {
             className="photoTile"
             onClick={() => setSelected(photos[2])}
             style={{ gridArea: 'bl', overflow: 'hidden', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)', height: 260, cursor: 'zoom-in' }}>
-            <img src={photos[2]} alt="Memory 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[2] as any, display: 'block', transition: 'transform 250ms ease' }} />
+            <img src={photos[2]} alt="Memory 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[3] as any, display: 'block', transition: 'transform 250ms ease' }} />
           </motion.div>
 
           {/* Bottom-right (photo 4) */}
@@ -69,8 +71,32 @@ export default function Surprise() {
             className="photoTile"
             onClick={() => setSelected(photos[3])}
             style={{ gridArea: 'br', overflow: 'hidden', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)', height: 260, cursor: 'zoom-in' }}>
-            <img src={photos[3]} alt="Memory 4" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[3] as any, display: 'block', transition: 'transform 250ms ease' }} />
+            <img src={photos[3]} alt="Memory 4" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[4] as any, display: 'block', transition: 'transform 250ms ease' }} />
           </motion.div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div
+          className="mobile-gallery"
+          style={{
+            marginTop: 24,
+            display: 'none',
+            flexDirection: 'column',
+            gap: 16,
+          }}
+        >
+          {photos.map((src, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="photoTile"
+              onClick={() => setSelected(src)}
+              style={{ overflow: 'hidden', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)', cursor: 'zoom-in', height: 240 }}>
+              <img src={src} alt={`Memory ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[i] as any, display: 'block', transition: 'transform 250ms ease' }} />
+            </motion.div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 24 }}>
+          <Link to="/" className="btn">Back to Home</Link>
         </div>
 
         {/* Lightbox modal */}
@@ -96,10 +122,6 @@ export default function Surprise() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        <div style={{ marginTop: 24 }}>
-          <Link to="/" className="btn">Back to Home</Link>
-        </div>
       </div>
     </div>
   )
