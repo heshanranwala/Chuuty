@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 export default function Surprise() {
   const photos = [photo1, photo2, photo3, photo4, photo5]
-  const positions = ['center', 'center 35%', 'center 30%', 'center', 'center']
+  const positions = ['center', 'center 25%', 'center 10%', 'center', 'center']
   const [selected, setSelected] = useState<string | null>(null)
 
   return (
@@ -63,7 +63,7 @@ export default function Surprise() {
             className="photoTile"
             onClick={() => setSelected(photos[2])}
             style={{ gridArea: 'bl', overflow: 'hidden', borderRadius: 16, border: '1px solid rgba(255,255,255,0.1)', height: 260, cursor: 'zoom-in' }}>
-            <img src={photos[2]} alt="Memory 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[3] as any, display: 'block', transition: 'transform 250ms ease' }} />
+            <img src={photos[2]} alt="Memory 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: positions[2] as any, display: 'block', transition: 'transform 250ms ease' }} />
           </motion.div>
 
           {/* Bottom-right (photo 4) */}
