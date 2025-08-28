@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 export default function Surprise() {
   const photos = [photo1, photo2, photo3, photo4, photo5]
-  const positions = ['center', 'center 35%', 'top center', 'center', 'center']
+  const positions = ['center', 'center 35%', 'center 30%', 'center', 'center']
   const [selected, setSelected] = useState<string | null>(null)
 
   return (
